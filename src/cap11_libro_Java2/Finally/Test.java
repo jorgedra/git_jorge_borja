@@ -1,5 +1,5 @@
-package ejemplos_excepciones.cap11_libro_Java2.Finally;
-import cap10.Banco.*;
+package cap11_libro_Java2.Finally;
+import cap10.Banco.*;// da error al importar cap10.banco
 import java.io.*;
 /////////////////////////////////////////////////////////////////
 // Aplicación para trabajar con la clase CBanco y la jerarquía
@@ -37,17 +37,17 @@ public class Test
     String nombre, cuenta;
     double saldo, tipoi, mant;
     System.out.print("Nombre.................: ");
-    nombre = Leer.dato();
+    nombre = Leer.dato();// da error al no encontrar el metodo
     System.out.print("Cuenta.................: ");
-    cuenta = Leer.dato();
+    cuenta = Leer.dato();// da error al no encontrar el metodo
     System.out.print("Saldo..................: ");
-    saldo = Leer.datoDouble();
+    saldo = Leer.datoDouble();// da error al no encontrar el metodo
     System.out.print("Tipo de interés........: ");
-    tipoi = Leer.datoDouble();
+    tipoi = Leer.datoDouble();// da error al no encontrar el metodo
     if (op == 1)
     {
       System.out.print("Mantenimiento..........: ");
-      mant = Leer.datoDouble();
+      mant = Leer.datoDouble();// da error al no encontrar el metodo
       obj = new CCuentaAhorro(nombre, cuenta, saldo, tipoi, mant);
     }
     else
@@ -55,9 +55,9 @@ public class Test
       int transex;
       double imptrans;
       System.out.print("Importe por transacción: ");
-      imptrans = Leer.datoDouble();
+      imptrans = Leer.datoDouble();// da error al no encontrar el metodo
       System.out.print("Transacciones exentas..: ");
-      transex = Leer.datoInt();
+      transex = Leer.datoInt();// da error al no encontrar el metodo
       if (op == 2)
         obj = new CCuentaCorriente(nombre, cuenta, saldo, tipoi,
                                    imptrans, transex);
@@ -84,7 +84,7 @@ public class Test
     System.out.print("   Opción: ");
     int op;
     do
-      op = Leer.datoInt();
+      op = Leer.datoInt();// da error al no encontrar el metodo
     while (op < 1 || op > 9);
     return op;
   }
@@ -110,7 +110,7 @@ public class Test
       {
         case 1: // saldo
           flujoS.print("Nombre o cuenta, total o parcial ");
-          cadenabuscar = Leer.dato();
+          cadenabuscar = Leer.dato();// da error al no encontrar el metodo
           pos = banco.buscar(cadenabuscar, 0);
           if (pos == -1)
             if (banco.longitud() != 0)
@@ -140,7 +140,7 @@ public class Test
           break;
        case 3: // ingreso
        case 4: // reintegro
-          flujoS.print("Cuenta: "); cuenta = Leer.dato();
+          flujoS.print("Cuenta: "); cuenta = Leer.dato();// da error al no encontrar el metodo
           pos = banco.buscar(cuenta, 0);
           if (pos == -1)
             if (banco.longitud() != 0)
@@ -149,7 +149,7 @@ public class Test
               flujoS.println("no hay clientes");
           else
           {
-            flujoS.print("Cantidad: "); cantidad = Leer.datoDouble();
+            flujoS.print("Cantidad: "); cantidad = Leer.datoDouble();// da error al no encontrar el metodo
             if (opción == 3)
               banco.clienteEn(pos).ingreso(cantidad);
             else
@@ -159,12 +159,12 @@ public class Test
        case 5: // añadir
           flujoS.print("Tipo de cuenta: 1-(CA), 2-(CC), 3-CCI  ");
           do
-            opción = Leer.datoInt();
+            opción = Leer.datoInt();// da error al no encontrar el metodo
           while (opción < 1 || opción > 3);
           banco.añadir(leerDatos(opción));
           break;
         case 6: // eliminar
-          flujoS.print("Cuenta: "); cuenta = Leer.dato();
+          flujoS.print("Cuenta: "); cuenta = Leer.dato();// da error al no encontrar el metodo
           eliminado = banco.eliminar(cuenta);
           if (eliminado)
             flujoS.println("registro eliminado");
@@ -184,7 +184,7 @@ public class Test
         case 8: // escribir
           try
           {
-            flujoS.print("Fichero: "); nombre = Leer.dato();
+            flujoS.print("Fichero: "); nombre = Leer.dato();// da error al no encontrar el metodo
             escribirDatos(banco, nombre);
           }
           catch (IOException e)
